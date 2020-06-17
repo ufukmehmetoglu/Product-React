@@ -1,19 +1,26 @@
 const mongoose = require('mongoose')
-// const db = require('../index.js')
 
-mongoose.Promise = global.Promise;
 
-const productSchema = new mongoose.Schema({
-   productID: Number,
-   productType: String,
+const Schema = mongoose.Schema;
+
+const productSchema = new Schema({
    name: String,
-   category: String,
+   categories: Array,
    price: Number,
    quantity: Number,
+   tags: Array,
    isActive: Boolean,
+   brands:[{
+      type: Schema.Types.ObjectId,
+      ref: 'brand'
+  }],
+   vendors: [{
+      type: Schema.Types.ObjectId,
+      ref: 'vendor'
+  }]
 })
 
 
-const Product = mongoose.model('Product',productSchema)
+const Product = mongoose.model('product',productSchema)
 
 module.exports= Product;

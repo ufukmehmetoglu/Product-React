@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/yumme', {
+mongoose.connect('mongodb://localhost/product', {
   useNewUrlParser: true,
   useFindAndModify: false
 });
